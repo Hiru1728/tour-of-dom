@@ -8,6 +8,10 @@
     <title>Tour of DOM</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        .fruits-conatiner {
+            color: aquamarine;
+        }
+
         li {
             color: tomato;
         }
@@ -28,7 +32,7 @@
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio corporis, adipisci totam at maiores quos,
             enim eveniet fuga, accusantium eligendi dolores error qui vel beatae animi? Adipisci nihil quo alias.</p>
     </header>
-    <main>
+    <main id="main-container">
         <section>
             <h1>My Awesome DOM project</h1>
             <ul>
@@ -38,17 +42,17 @@
                 <li>give the Dom</li>
             </ul>
         </section>
-        <section>
-            <h1 id="fruits-title">Fruits I like</h1>
+        <section class="fruits-conatiner">
+            <h1 id="fruits-title" class="some-class random-class blue-bg">Fruits I like</h1>
             <ul>
                 <li>Apple</li>
                 <li>Banana</li>
                 <li>Carrot</li>
             </ul>
         </section>
-        <section>
+        <section id="places-container" class="large-text">
             <h1 id="place-title">Please I like to visit</h1>
-            <ul>
+            <ul id="places-list">
                 <li class="important-places">Sondarban</li>
                 <li class="important-places">Bandorban</li>
                 <li class="important-places">Koakata</li>
@@ -57,6 +61,9 @@
         </section>
     </main>
     <script src="js/dom.js"></script>
+    <script src="js/append.js"></script>
+    <script src="js/styleInJs.js"></script>
+
     <script>
         // const student = {
         //     name: 'babul',
@@ -66,6 +73,8 @@
         //     }
         // }
         // console.log('adding JS inside the html file');
+        // option -1: getElementsByTagName
+
         const liCollection = document.getElementsByTagName('li');
         // console.log(liCollection);
         for (const li of liCollection) {
@@ -79,12 +88,25 @@
         /*
 Id name Change Function
 */
+        // option -2: getElementById
 
         const fruitsTitle = document.getElementById('fruits-title');
+
         fruitsTitle.innerText = 'Fruits changed by JS';
+
+        // option -3: getElementByClassName
+
         const places = document.getElementsByClassName('important-places');
         for (const place of places) {
             // console.log(place.innerText);
+        }
+
+        // option-4: querySelectorAll
+
+        const someLi = document.querySelectorAll('.fruits-conatiner li');
+        // console.log(someLi);
+        for (const li of someLi) {
+            // console.log(li.innerText);
         }
     </script>
 </body>
